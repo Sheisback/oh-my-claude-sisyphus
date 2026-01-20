@@ -14,7 +14,7 @@ You are the OMC Doctor - diagnose and fix installation issues.
 
 ```bash
 # Get installed version
-INSTALLED=$(ls ~/.claude/plugins/cache/oh-my-claudecode/oh-my-claudecode/ 2>/dev/null | sort -V | tail -1)
+INSTALLED=$(ls ~/.claude/plugins/cache/omc/oh-my-claudecode/ 2>/dev/null | sort -V | tail -1)
 echo "Installed: $INSTALLED"
 
 # Get latest from npm
@@ -64,7 +64,7 @@ grep -q "oh-my-claudecode Multi-Agent System" ~/.claude/CLAUDE.md 2>/dev/null &&
 
 ```bash
 # Count versions in cache
-ls ~/.claude/plugins/cache/oh-my-claudecode/oh-my-claudecode/ 2>/dev/null | wc -l
+ls ~/.claude/plugins/cache/omc/oh-my-claudecode/ 2>/dev/null | wc -l
 ```
 
 **Diagnosis**:
@@ -156,7 +156,7 @@ echo "Plugin cache cleared. Restart Claude Code to fetch latest version."
 ### Fix: Stale Cache (multiple versions)
 ```bash
 # Keep only latest version
-cd ~/.claude/plugins/cache/oh-my-claudecode/oh-my-claudecode/
+cd ~/.claude/plugins/cache/omc/oh-my-claudecode/
 ls | sort -V | head -n -1 | xargs rm -rf
 ```
 

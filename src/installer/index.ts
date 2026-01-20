@@ -48,7 +48,7 @@ export const VERSION_FILE = join(CLAUDE_CONFIG_DIR, '.omc-version.json');
 export const CORE_COMMANDS: string[] = [];
 
 /** Current version */
-export const VERSION = '3.0.5';
+export const VERSION = '3.0.6';
 
 /** Installation result */
 export interface InstallResult {
@@ -422,7 +422,7 @@ export function install(options: InstallOptions = {}): InstallResult {
         '  }',
         '  ',
         '  // 2. Plugin cache (for production installs)',
-        '  const pluginCacheBase = join(home, ".claude/plugins/cache/oh-my-claudecode/oh-my-claudecode");',
+        '  const pluginCacheBase = join(home, ".claude/plugins/cache/omc/oh-my-claudecode");',
         '  if (existsSync(pluginCacheBase)) {',
         '    try {',
         '      const versions = readdirSync(pluginCacheBase);',
@@ -439,12 +439,12 @@ export function install(options: InstallOptions = {}): InstallResult {
         '  ',
         '  // 3. npm package (global or local install)',
         '  try {',
-        '    await import("oh-my-claudecode/dist/hud/index.js");',
+        '    await import("oh-my-claude-sisyphus/dist/hud/index.js");',
         '    return;',
         '  } catch { /* continue */ }',
         '  ',
         '  // 4. Fallback: minimal HUD',
-        '  console.log("[SISYPHUS] active");',
+        '  console.log("[OMC] active");',
         '}',
         '',
         'main();',

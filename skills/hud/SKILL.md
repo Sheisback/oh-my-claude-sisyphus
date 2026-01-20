@@ -30,12 +30,12 @@ When you run `/hud` or `/hud setup`, the system will automatically:
 **IMPORTANT**: If the argument is `setup` OR if the HUD script doesn't exist at `~/.claude/hud/omc-hud.mjs`, you MUST run the setup by:
 1. First check if the files exist using Bash: `ls ~/.claude/hud/omc-hud.mjs 2>/dev/null && echo EXISTS || echo MISSING`
 2. If MISSING or argument is `setup`, find the plugin path and run: `node <plugin-path>/scripts/plugin-setup.mjs`
-3. The plugin path can be found at: `~/.claude/plugins/cache/oh-my-claudecode/oh-my-claudecode/<version>/` or the local dev path
+3. The plugin path can be found at: `~/.claude/plugins/cache/omc/oh-my-claudecode/<version>/` or the local dev path
 
 To find and run setup automatically:
 ```bash
 # Try plugin cache first, then dev paths
-PLUGIN_SETUP=$(find ~/.claude/plugins/cache/oh-my-claudecode -name "plugin-setup.mjs" 2>/dev/null | head -1)
+PLUGIN_SETUP=$(find ~/.claude/plugins/cache/omc/oh-my-claudecode -name "plugin-setup.mjs" 2>/dev/null | head -1)
 if [ -z "$PLUGIN_SETUP" ]; then
   # Try common dev paths
   for p in ~/Workspace/oh-my-claudecode ~/workspace/oh-my-claudecode ~/projects/oh-my-claudecode; do
