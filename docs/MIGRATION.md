@@ -131,7 +131,7 @@ The package has been renamed to better reflect its purpose and improve discovera
 npm install -g oh-my-claude-sisyphus
 
 # New
-npm install -g oh-my-claudecode
+npm install -g oh-my-claude-sisyphus
 ```
 
 ### What Changed
@@ -302,7 +302,7 @@ npm uninstall -g oh-my-claude-sisyphus
 #### 2. Install New Package
 
 ```bash
-npm install -g oh-my-claudecode
+npm install -g oh-my-claude-sisyphus
 ```
 
 #### 3. Rename Local Project Directories
@@ -363,7 +363,7 @@ After migration, verify your setup:
 
 1. **Check installation**:
    ```bash
-   npm list -g oh-my-claudecode
+   npm list -g oh-my-claude-sisyphus
    ```
 
 2. **Verify directories exist**:
@@ -763,7 +763,7 @@ After upgrading, verify new features:
 
 1. **Check installation**:
    ```bash
-   npm list -g oh-my-claudecode
+   npm list -g oh-my-claude-sisyphus
    ```
 
 2. **Test ultrapilot**:
