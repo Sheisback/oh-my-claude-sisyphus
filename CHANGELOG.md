@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.7.7] - 2026-01-28
+
+### Added
+
+#### LSP/AST Agent Wiring
+
+Wire LSP and AST tools into the agent system so agents can actually use them at runtime. PR #182.
+
+- **Session-level**: Added 12 LSP tools and 2 AST tools to `allowedTools` array
+  - Opt-out via `config.features.lspTools = false` or `config.features.astTools = false`
+  - Enabled by default (backward compatible)
+
+- **Agent-level**: Updated 17 agents with appropriate LSP/AST tools:
+  | Agent | Tools Added |
+  |-------|-------------|
+  | architect, architect-medium | `lsp_diagnostics`, `lsp_diagnostics_directory`, `ast_grep_search` |
+  | architect-low | `lsp_diagnostics` |
+  | executor, executor-high | `lsp_diagnostics`, `lsp_diagnostics_directory`, `ast_grep_search`, `ast_grep_replace` |
+  | executor-low | `lsp_diagnostics` |
+  | explore, explore-medium | `ast_grep_search`, `lsp_document_symbols`, `lsp_workspace_symbols` |
+  | explore-high | + `lsp_find_references` |
+  | build-fixer, build-fixer-low | `lsp_diagnostics`, `lsp_diagnostics_directory` |
+  | tdd-guide, tdd-guide-low | `lsp_diagnostics` |
+  | code-reviewer | `lsp_diagnostics`, `ast_grep_search` |
+  | code-reviewer-low | `lsp_diagnostics` |
+  | qa-tester, qa-tester-high | `lsp_diagnostics` |
+
+### Fixed
+
+- Resolved prompt-tool mismatch where agent prompts referenced `lsp_diagnostics` and `ast_grep_search` but tool arrays did not include them
+
 ## [3.7.6] - 2026-01-28
 
 ### Added
